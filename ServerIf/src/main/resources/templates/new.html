@@ -1,0 +1,77 @@
+
+	
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div align="center">
+    <h1>Simulate an event</h1>
+    <br />
+     <div class="col-sm-4">
+    <form action="#" th:action="@{/save}" th:object="${object}" method="post">
+ 
+      	<td th:text="${object.userid}">Student ID</td>
+		<td th:text="${object.ts}">Student ID</td>
+		<td th:text="${object.lat_long}">Student ID</td>
+		<td th:text="${object.noun}">Student ID</td>
+		<td th:text="${object.verb}">Student ID</td>
+		<td th:text="${object.time_spent}">Student ID</td>
+		<td th:text="${object.properties}">Student ID</td>
+ 		<div alight="left">
+            <tr>
+                <label class="form-label" >Event</label>
+                <td>
+	                <input type="hidden" th:field="*{id}" />
+	                <input type="text" th:field="*{userid}" class="form-control" placeholder="userid" />
+                </td>
+            </tr>
+         </div>   
+         
+         <div alight="left">
+          
+            <tr>
+                <td><input type="text" th:field="*{ts}" class="form-control" placeholder="ts" /></td>
+            </tr>
+            </div>
+            
+          	<div alight="left">
+          
+            <tr>
+                <td><input type="text" th:field="*{lat_long}" class="form-control" placeholder="latitude longitude" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                <td><input type="text" th:field="*{noun}" class="form-control" placeholder="noun" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                <td><input type="text" th:field="*{verb}" class="form-control" placeholder="verb" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                <td><input type="text" th:field="*{time_spent}" class="form-control" placeholder="time_spent" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                <td><input type="text" th:field="*{properties}" class="form-control" placeholder="properties" /></td>
+            </tr>
+            </div>  
+			<br>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
