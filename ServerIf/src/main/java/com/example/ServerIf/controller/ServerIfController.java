@@ -24,10 +24,13 @@ public class ServerIfController {
 	    private ServerIfService service;
 
 	    @GetMapping("/")
-	    public String viewHomePage(Model model, @ModelAttribute("mapping1Form") final String list2) {
+	    public String viewHomePage(Model model, @ModelAttribute("list2") final String list2) {
 	        List<ServerIf> list1 = service.listAll();
 	        model.addAttribute("list1", list1);
 	        model.addAttribute("list2", list2);
+	        System.out.println("test");
+	        System.out.println(list2);
+	        
 	        
 	        System.out.print("Get / ");	
 	        return "index";
@@ -40,13 +43,14 @@ public class ServerIfController {
 	    }
 
 	    @RequestMapping(value = "/save", method = RequestMethod.POST)
-	    public String saveObject(@ModelAttribute("mapping1Form") String list2, @ModelAttribute("object") ServerIf std, Model model, final RedirectAttributes redirectAttributes) {
+	    public String saveObject(@ModelAttribute("object") ServerIf std, Model model, final RedirectAttributes redirectAttributes) {
 	        List<ServerIf> temp = service.findUserid(std.getUserid());
-	        list2 = "second";
-	        if(temp == null)
+	        String list2 = "second";
+	        if(temp.isEmpty())
 	        {
-	        	list2 = "first";
+	        	list2 = "Your First order!!!";
 	        	redirectAttributes.addFlashAttribute("list2", list2);
+	        	System.out.println(list2);
 	        	
 	        }
 	        service.save(std);
